@@ -1,0 +1,19 @@
+family:
+  family-name: "happy family"
+  father:
+    name: tom
+    age: 38
+    email: bear@163.com
+  mother:
+    alias:
+      - rose
+      - alice
+  child:
+    name: jack
+    age: 6
+
+    friends:
+      - hobby: football
+        gender: nale
+      - hobby: sing
+        gender: female

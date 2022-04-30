@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
+
+        body {
+            background:rgb(223,189,150);
+            font-family: 'Josefin Sans', sans-serif;
+            text-align:center;
+        }
+
+        .cup {
+            width:76px;
+            height:76px;
+            background:#dedede;
+            border-radius:50%;
+            position:absolute;
+            left:50%;
+            margin-left:-38px;
+            top:100px;
+            box-shadow:-4px -1px 0 rgba(0,0,0,0.2);
+        }
+
+        .cup:after{
+            content:"";
+            width:66px;
+            height:66px;
+            position:absolute;
+            border-radius:50%;
+            background:linear-gradient(-45deg, #cbcbcb, #f2f2f2 );
+            left:50%;
+            margin-left:-33px;
+            top:5px;
+        }
+
+        .coffee{
+            width:47px;
+            height:47px;
+            background:#613317;
+            /*background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px);*/
+            border-radius:50%;
+            position:absolute;
+            left:50%;
+            margin-left:-25px;
+            z-index:1;
+            top:50%;
+            margin-top:-26px;
+            border:3px solid #e9e9e9;
+            box-shadow:-3px 2px 0 rgba(0,0,0,0.1);
+            transform:rotate(30deg);
+            transition:transform 0.3s;
+        }
+        .cup:hover .coffee {
+            transform: rotate(15deg);
+        }
+        .txt{
+            position:absolute;
+            top:184px;
+            width:150px;
+            left:50%;
+            margin-left:-75px;
+        }
+        img{
+            width: 180px;
+            height: 180px;
+        }
+        div{
+            width: 200px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<!--    <div>-->
+<!--        <h1>欢迎光临</h1>-->
+<!--    </div>-->
+<!--    <div class="cup">-->
+<!--        <div class="coffee"></div>-->
+<!--    </div>-->
+<!--    <div class="txt">-->
+<!--        <h3>Coffee break</h3>-->
+<!--        <small>-->
+<!--            by @elrumordelaluz-->
+<!--        </small>-->
+<!--    </div>-->
+
+    <div class="card" style="width: 18rem;">
+        <img src="./images/jingdong.png" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">京东商城</h5>
+            <p class="card-text">买点好的，上京东</p>
+            <a href="https://pro.jd.com/" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="./images/weibo.png" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">微博</h5>
+            <p class="card-text">随时随地发现新鲜事</p>
+            <a href="https://tw.weibo.com/" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

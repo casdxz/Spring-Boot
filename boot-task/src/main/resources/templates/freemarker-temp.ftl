@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>freemarker简单示例</title>
+</head>
+<body>
+<h1>Hello Freemarker</h1>
+<table class="">
+    <tr>
+        <td>作者</td>
+        <td>教程名称</td>
+        <td>内容</td>
+    </tr>
+
+    <#list articles as article>
+        <tr>
+            <td>${article.author}</td>
+            <td>${article.title}</td>
+            <td>${article.content}</td>
+        </tr>
+    </#list>
+</table>
+</body>
+</html>

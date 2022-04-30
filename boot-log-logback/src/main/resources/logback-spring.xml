@@ -1,0 +1,13 @@
+<configuration>
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
+            <url>jdbc:mysql://localhost:3306/exception</url>
+            <user>root</user>
+            <password>980529</password>
+        </connectionSource>
+    </appender>
+    <root level="INFO" >
+        <appender-ref ref="DB" />
+    </root>
+</configuration>

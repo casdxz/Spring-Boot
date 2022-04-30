@@ -1,0 +1,16 @@
+file:
+  upload-path: C:\Users\熊殿下\Desktop\upload
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.upload-path}
+
+minio:
+  endPoint: http://47.103.132.113:9000
+  accessKey: admin
+  secretKey: admin123
+

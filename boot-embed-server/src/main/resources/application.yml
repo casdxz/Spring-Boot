@@ -1,0 +1,7 @@
+server:
+  port: 8888
+  httpPort: 80
+  ssl:
+    key-store: bear-ssl-key.p12
+    key-store-password: 980529
+    key-store-type: PKCS12

@@ -1,0 +1,26 @@
+#logging:
+#  level: {
+#    com.bear.boot.log.controller: trace
+#  }
+
+#logging:
+#  level:
+#    root: info
+#    com.bear.boot.log.controller: debug
+#  file:
+#    path: E:/logs
+#    name: E:/logs/boot-log.log
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 10MB
+#      max-history: 7
+#  pattern:
+#    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+#    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+
+
+#spring:
+#  profiles:
+#    active: dev
+#logging:
+#  config: classpath:log4j2-dev.xml

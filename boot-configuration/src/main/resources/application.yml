@@ -1,0 +1,4 @@
+# 指定需要
+spring:
+  profiles:
+    active: prod

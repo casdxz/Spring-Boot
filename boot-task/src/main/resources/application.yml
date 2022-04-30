@@ -1,0 +1,38 @@
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 8                              # 核心线程数
+        max-size: 16                              # 最大线程数
+        keep-alive: 60s                           # 空闲线程存活时间
+        allow-core-thread-timeout: true           # 是否允许核心线程超时
+        queue-capacity: 100                       # 线程对列数量
+      shutdown:
+        await-termination: false                  # 线程关闭等待
+        await-termination-period:
+      thread-name-prefix: task-                   # 线程名称前缀
+
+
+  mail:
+    host: smtp.qq.com
+    username: 169977349@qq.com
+    password: oliyfakmpghbcaif
+    protocol: smtp
+    properties.mail.smty.auth: true
+    properties.mail.smty.port: 465
+    properties.mail.display.sendmail: Javen
+    properties.mail.display.sendname: Spring Boot Email
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+
+  freemarker:
+    cache: false # 缓存配置开发阶段应该配置为false 因为经常会改
+    suffix: .ftl # 模版文件后缀名
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+
+server:
+  port: 8888
+

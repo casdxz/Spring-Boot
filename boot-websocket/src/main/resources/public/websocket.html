@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket页面</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        body {
+            /* background-color: #333; */
+            /*color: #f6f6f6;*/
+            background-image: url('https://cdn.jsdelivr.net/gh/casdxz/image@master/head/banner21.webp');
+        }
+
+        #app {
+            width: 500px;
+            height: 350px;
+            background-color: rgba(25, 174, 215, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+        }
+
+        .box {
+            display: flex;
+        }
+
+        input {
+            display: block;
+            height: 50px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        button {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            background-color: rgb(0, 81, 255);
+            color: #eaf0fb;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+
+        .animated-border-button {
+            background-color: #7584c6;
+            border: none;
+            color: #ffffff;
+            outline: none;
+            padding: 5px 10px 5px;
+            position: relative;
+            width: 200px;
+            height: 50px;
+        }
+
+        .animated-border-button:before,
+        .animated-border-button:after {
+            border: 0 solid transparent;
+            transition: all 0.3s;
+            content: '';
+            height: 0;
+            position: absolute;
+            width: 24px;
+
+        }
+
+        .animated-border-button:before {
+            border-top: 2px solid #0ff1f1;
+            right: 0;
+            top: -4px;
+        }
+
+        .animated-border-button:after {
+            border-bottom: 2px solid #0ff1f1;
+            left: 0;
+            bottom: -4px;
+        }
+
+        .animated-border-button:hover:before,
+        .animated-border-button:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="box">
+        <label>
+            <input type="text" v-model="nickname" id="nickname" placeholder="输入昵称">
+        </label>
+        <button class="animated-border-button" @click="open">连接websocket</button>
+    </div>
+    <div class="box">
+        <label>
+            <input type="text" v-model="content" id="content" placeholder="输入内容">
+        </label>
+        <button class="animated-border-button" @click="sendMsg">发送消息</button>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                ws: null,
+                content: "",
+                message: "显示消息",
+                nickname: ""
+            }
+        },
+        methods: {
+            open() {
+                if (this.nickname === "") {
+                    alert("昵称不能为空");
+                    return;
+                }
+                // ws = new WebSocket(`ws://localhost:8080/websocket?nickname=${this.nickname}`);
+                ws = new WebSocket(`ws://localhost:8080/socket/1`)
+                ws.onopen = () => {
+                    console.log("websocket已经连接");
+                    swal(this.nickname, "Welcome to use", "success");
+                }
+                ws.onclose = () => {
+                    console.log("websocket已经关闭");
+                    swal(this.nickname, "欢迎下次光临", "error");
+                }
+                ws.onerror = () => {
+                    console.log("websocket出现异常");
+                    swal("websocket出现异常", "error");
+                }
+                ws.onmessage = (msg) => {
+                    console.log(msg);
+                    swal(msg.data);
+                    this.message = this.message.concat(msg.data);
+                }
+            },
+            sendMsg() {
+                ws.send(this.content);
+                console.log("发送成功");
+                this.content = "";
+            }
+        }
+    })
+</script>
+</body>
+</html>

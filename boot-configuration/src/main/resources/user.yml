@@ -1,0 +1,6 @@
+users:
+  name: bear
+  age: 20
+  book:
+    book-name: 钢铁是怎么炼成的。
+    price: 59.9

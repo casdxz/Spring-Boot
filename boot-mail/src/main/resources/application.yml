@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot_mail?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 980529
+  mail:
+    host: smtp.qq.com
+    username: 169977349@qq.com
+    password: oliyfakmpghbcaif
+    protocol: smtp
+    properties.mail.smty.auth: true
+    properties.mail.smty.port: 465
+    properties.mail.display.sendmail: Javen
+    properties.mail.display.sendname: Spring Boot Email
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+
+  freemarker:
+    cache: false # 缓存配置开发阶段应该配置为false 因为经常会改
+    suffix: .ftl # 模版文件后缀名
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+
+  server:
+    port: 8888
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.bear.boot.mail.entity
+  configuration:
+    map-underscore-to-camel-case: true

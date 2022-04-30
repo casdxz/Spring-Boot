@@ -5,6 +5,21 @@
     <modules>
         <module>boot-quickstart</module>
         <module>boot-restful</module>
+        <module>boot-configuration</module>
+        <module>boot-orm</module>
+        <module>boot-jpa</module>
+        <module>boot-resources-template</module>
+        <module>boot-filter-interceptor</module>
+        <module>boot-embed-server</module>
+        <module>boot-exception</module>
+        <module>boot-log-framework</module>
+        <module>boot-log-logback</module>
+        <module>boot-task</module>
+        <module>boot-file</module>
+        <module>boot-actuator</module>
+        <module>boot-websocket</module>
+        <module>boot-mail</module>
+        <module>boot-verifycode</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -34,6 +49,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
     <build>
