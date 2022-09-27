@@ -1,0 +1,49 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: gateway-service  #应用名称
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true   #开启网关服务
+          lower-case-service-id: true
+      routes:   # 网关服务路由配置
+        - id: user-service   # 服务id
+          order: 1      #优先级
+          predicates:   #规则定义
+            - Path=/api/v1/users/**
+          uri: lb://user-service   #服务url
+          filters:
+            - StripPrefix=2
+        - id: content-service
+          order: 1
+          predicates:
+            - Path=/api/v1/shares/**
+          uri: lb://content-service
+          filters:
+            - StripPrefix=2021
+        - id: advertice-service
+          order: 1
+          predicates:
+            - Path=/api/v1/advertisement/**
+          uri: lb://advertice-service
+          filters:
+            - StripPrefix=2
+        - id: notice-service
+          order: 1
+          predicates:
+            - Path=/api/v1/notices/**
+          uri: lb://notice-service
+          filters:
+            - StripPrefix=2
+    nacos:         #nacos配置
+      discovery:
+        namespace: dev  #命名空间
+        server-addr: 124.222.178.129:8848   #nacos端口
+#        server-addr: 139.196.153.80:8848   #nacos端口
+      password: nacos
+      username: nacos
+
